@@ -6,15 +6,16 @@ class CoinDesk
 {
     private array $cryptoData;
 
-    public function __construct(CoinDeskAPI $cryptoData)
+    public function __construct()
     {
-        $this->cryptoData = $cryptoData->fetchData();
+        $this->cryptoData = (new CoinDeskAPI())->fetchData();
     }
 
     public function getUSDPrice(): string
     {
         return $this->cryptoData['bpi']['USD']['rate'];
     }
+
 
     public function getGBPPrice(): string
     {
