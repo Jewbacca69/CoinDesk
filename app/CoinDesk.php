@@ -16,7 +16,6 @@ class CoinDesk
         return $this->cryptoData['bpi']['USD']['rate'];
     }
 
-
     public function getGBPPrice(): string
     {
         return $this->cryptoData['bpi']['GBP']['rate'];
