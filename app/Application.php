@@ -11,11 +11,11 @@ class Application extends Command
 {
     private CoinDesk $coinDesk;
 
-    public function __construct(CoinDesk $coinDesk)
+    public function __construct()
     {
         parent::__construct();
 
-        $this->coinDesk = $coinDesk;
+        $this->coinDesk = new CoinDesk();
     }
 
     protected function configure(): void
