@@ -15,9 +15,9 @@ class CoinDeskAPI
         $this->client = HttpClient::create();
     }
 
-    public function fetchData(): array
+    public function fetchData(): object
     {
-        $response = $this->client->request('GET', self::API_URL);
-        return $response->toArray();
+        $response = $this->client->request('GET', self::API_URL)->getContent();
+        return json_decode($response);
     }
 }
