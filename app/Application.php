@@ -27,11 +27,15 @@ class Application extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
+        $usdPrice = $this->coinDesk->getPrice('USD');
+        $gbpPrice = $this->coinDesk->getPrice('GBP');
+        $eurPrice = $this->coinDesk->getPrice('EUR');
+
         $io->success('Up-to-date Cryptocurrency prices');
         $io->table(['Currency', 'Price'], [
-            ['USD', $this->coinDesk->getUSDPrice()],
-            ['GBP', $this->coinDesk->getGBPPrice()],
-            ['EUR', $this->coinDesk->getEURPrice()],
+            ['USD', $usdPrice],
+            ['GBP', $gbpPrice],
+            ['EUR', $eurPrice],
         ]);
 
         return Command::SUCCESS;
